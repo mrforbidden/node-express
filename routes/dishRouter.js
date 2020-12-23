@@ -29,6 +29,12 @@ dishRouter.route('/')
 
 dishRouter.route('/:dishId')
 
+.all((req,res,next) =>{
+    res.statusCode = 200;
+    res.setHeader('Content-Type','test/plain');
+    next();
+})
+
 .get((req,res,next) => {
     res.end('Will send details of the dish: ' + req.params.dishId +' to you!');
 })
